@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "25932810493",
+    "project_id": "belajar-crud-firebase-20d72",
+    "storage_bucket": "belajar-crud-firebase-20d72.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:25932810493:android:04aa2c5dfe1fd91f011694",
+        "android_client_info": {
+          "package_name": "com.rasya.contact_manager"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlTa8EMW4QijibYWc-0s3BvP9PZ8k-qM4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
