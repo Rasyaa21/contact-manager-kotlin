@@ -6,15 +6,14 @@ import android.os.Bundle
 import android.widget.Toast
 import android.widget.Toast.LENGTH_LONG
 import android.widget.Toast.LENGTH_SHORT
-import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.auth
 import com.rasya.contact_manager.databinding.ActivityRegisterBinding
 
 
 private lateinit var firebaseAuth: FirebaseAuth;
 
 class RegisterActivity : AppCompatActivity() {
+    @Suppress("DEPRECATION")
     override fun onCreate(savedInstanceState: Bundle?) {
         val binding = ActivityRegisterBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
@@ -34,6 +33,7 @@ class RegisterActivity : AppCompatActivity() {
                             intent.putExtra("email", email)
                             intent.putExtra("password", password)
                             startActivity(intent)
+                            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
                             finish()
                         }
                         else{
@@ -49,6 +49,8 @@ class RegisterActivity : AppCompatActivity() {
         binding.btLogin.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+            finish()
         }
     }
 }
