@@ -1,5 +1,6 @@
 package com.rasya.contact_manager
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -29,15 +30,25 @@ class RegisterActivity : AppCompatActivity() {
                     firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener{
                         if(it.isSuccessful){
                             Toast.makeText(this, "Account Successfully Created", LENGTH_LONG).show()
+                            val intent = Intent(this, MainActivity::class.java)
+                            intent.putExtra("email", email)
+                            intent.putExtra("password", password)
+                            startActivity(intent)
+                            finish()
                         }
                         else{
-                            Toast.makeText(this, "There Was Problem When Creating Account", LENGTH_LONG).show()
+                            Toast.makeText(this, "Email already exist", LENGTH_LONG).show()
                         }
                     }
                 }
                 else{
-                    Toast.makeText(this,"Email Already Exist", LENGTH_SHORT).show()
+                    Toast.makeText(this,"please fill the form", LENGTH_SHORT).show()
                 }
             }
+
+        binding.btLogin.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
         }
     }
+}
