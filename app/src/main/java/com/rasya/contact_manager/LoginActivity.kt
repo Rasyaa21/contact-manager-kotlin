@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import android.widget.Toast.LENGTH_LONG
 import android.widget.Toast.LENGTH_SHORT
+import androidx.core.view.WindowCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.rasya.contact_manager.databinding.ActivityLoginBinding
 
@@ -17,6 +18,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         firebaseAuth = FirebaseAuth.getInstance()
 

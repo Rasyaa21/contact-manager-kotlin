@@ -2,6 +2,7 @@ package com.rasya.contact_manager
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.view.WindowCompat
 import com.rasya.contact_manager.databinding.ActivityMainBinding
 
 
@@ -12,6 +13,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
+
 
         val email = intent.getStringExtra("email")
 
