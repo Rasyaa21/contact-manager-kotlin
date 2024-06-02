@@ -13,6 +13,9 @@ class MainActivity : AppCompatActivity() {
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val email = intent.getStringExtra("email")
+
+        binding.tvEmail.text = email
         
 
     }

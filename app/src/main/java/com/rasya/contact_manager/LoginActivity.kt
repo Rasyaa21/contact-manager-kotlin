@@ -36,9 +36,9 @@ class LoginActivity : AppCompatActivity() {
                     if (it.isSuccessful){
                         Toast.makeText(this, "Login Successfull", LENGTH_LONG).show()
                         val intent = Intent(this, MainActivity::class.java)
-                        startActivity(intent)
                         intent.putExtra("email", email)
                         intent.putExtra("password", password)
+                        startActivity(intent)
                         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
                         finish()
                     }
