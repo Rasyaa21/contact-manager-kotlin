@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.bottomNavigationView.setOnItemSelectedListener {
             when(it.itemId){
-                R.id.navbarHome
+                R.id.navbarHome,
                 R.id.navbarAccount
             }
         }
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         val email = intent.getStringExtra("email")
 
         binding.tvEmail.text = email
-        
+
 
     }
 }
