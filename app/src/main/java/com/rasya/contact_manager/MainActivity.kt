@@ -14,7 +14,12 @@ class MainActivity : AppCompatActivity() {
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
+        binding.bottomNavigationView.setOnItemSelectedListener {
+            when(it.itemId){
+                R.id.navbarHome
+                R.id.navbarAccount
+            }
+        }
 
         val email = intent.getStringExtra("email")
 

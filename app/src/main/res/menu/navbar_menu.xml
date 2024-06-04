@@ -7,7 +7,7 @@
 
 
     <item android:title="Contact"
-        android:id="@+id/navarContact"
+        android:id="@+id/navbarContact"
         android:icon="@drawable/baseline_contacts_24"/>
 
     <item android:title="Account"
