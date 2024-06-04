@@ -16,7 +16,6 @@ class MainActivity : AppCompatActivity() {
 
 
 
-
         val email = intent.getStringExtra("email")
 
         binding.tvEmail.text = email
