@@ -2,16 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:title="Home"
-        android:id="@+id/navbarHome"
+        android:id="@+id/MainActivity"
         android:icon="@drawable/baseline_home_filled_24"/>
 
 
     <item android:title="Contact"
-        android:id="@+id/navbarContact"
+        android:id="@+id/ContactActivity"
         android:icon="@drawable/baseline_contacts_24"/>
 
     <item android:title="Account"
-        android:id="@+id/navbarAccount"
+        android:id="@+id/AccountActivity"
         android:icon="@drawable/baseline_account_circle_24"/>
 
 </menu>
