@@ -18,28 +18,5 @@ class MainActivity : AppCompatActivity() {
 
         val email = intent.getStringExtra("email")
         binding.tvEmail.text = email
-        replaceFragment()
-
-
-        binding.bottomNavigationView.setOnItemSelectedListener {
-
-            when(it.itemId){
-                R.id.HomeActivity -> replaceFragment(())
-                R.id.ContactActivity -> replaceFragment(ContactActivity())
-                R.id.AccountActivity -> replaceFragment(AccountActivity())
-
-                else -> {
-
-                }
-            }
-            true
-        }
     }
-
-    private fun replaceFragment(fragment: Fragment){
-        val fragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.fragmentContainer, fragment)
-        fragmentTransaction.commit()
-    }
-
 }

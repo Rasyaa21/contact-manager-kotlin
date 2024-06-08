@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/HomeActivity">
+
+    <activity
+        android:id="@+id/HomeActivity"
+        android:name="com.rasya.contact_manager.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+    <activity
+        android:id="@+id/ContactActivity"
+        android:name="com.rasya.contact_manager.ContactActivity"
+        android:label="activity_contact"
+        tools:layout="@layout/activity_contact" />
+    <activity
+        android:id="@+id/AccountActivity"
+        android:name="com.rasya.contact_manager.AccountActivity"
+        android:label="activity_account"
+        tools:layout="@layout/activity_account" />
+</navigation>
