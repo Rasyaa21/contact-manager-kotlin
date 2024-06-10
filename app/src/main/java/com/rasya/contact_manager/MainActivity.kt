@@ -33,7 +33,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.HomeActivity->setCurrentFragment(homeFragment)
                 R.id.ContactActivity->setCurrentFragment(contactFragment)
                 R.id.AccountActivity->setCurrentFragment(accountFragment)
-
             }
             true
         }
@@ -41,6 +40,12 @@ class MainActivity : AppCompatActivity() {
     }
     private fun setCurrentFragment(fragment: Fragment){
         supportFragmentManager.beginTransaction().apply {
+            setCustomAnimations(
+                R.anim.slide_in_right,
+                R.anim.slide_out_left,
+                R.anim.slide_in_left,
+                R.anim.slide_out_right
+            )
             replace(R.id.flFragment, fragment)
             commit()
         }
