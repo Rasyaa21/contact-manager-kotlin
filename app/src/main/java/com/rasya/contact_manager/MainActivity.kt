@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val email = intent.getStringExtra("email")
-        binding.tvEmail.text = email
 
         val homeFragment = homeFragment()
         val contactFragment = contactFragment()
