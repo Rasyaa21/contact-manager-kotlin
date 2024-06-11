@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context=".fragments.homeFragment"
-    tools:layout_editor_absoluteX="0dp"
-    tools:layout_editor_absoluteY="-13dp">
+    tools:layout_editor_absoluteX="-1dp"
+    tools:layout_editor_absoluteY="-41dp">
 
 
     <Button
@@ -24,7 +24,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.434" />
+        app:layout_constraintVertical_bias="0.465" />
 
     <Button
         android:id="@+id/btTwo"
@@ -39,7 +39,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btOne"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.434" />
+        app:layout_constraintVertical_bias="0.465" />
 
     <Button
         android:id="@+id/btThree"
@@ -55,7 +55,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btTwo"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.434" />
+        app:layout_constraintVertical_bias="0.465" />
 
     <Button
         android:id="@+id/btFive"
@@ -70,7 +70,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btFour"
         app:layout_constraintTop_toBottomOf="@+id/btTwo"
-        app:layout_constraintVertical_bias="0.038" />
+        app:layout_constraintVertical_bias="0.041" />
 
     <Button
         android:id="@+id/btFour"
@@ -87,7 +87,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btOne"
-        app:layout_constraintVertical_bias="0.038" />
+        app:layout_constraintVertical_bias="0.041" />
 
     <Button
         android:id="@+id/btSix"
@@ -103,7 +103,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btFive"
         app:layout_constraintTop_toBottomOf="@+id/btThree"
-        app:layout_constraintVertical_bias="0.038" />
+        app:layout_constraintVertical_bias="0.041" />
 
     <Button
         android:id="@+id/btEight"
@@ -118,7 +118,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btSeven"
         app:layout_constraintTop_toBottomOf="@+id/btFive"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintVertical_bias="0.078" />
 
     <Button
         android:id="@+id/btNine"
@@ -135,7 +135,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btEight"
         app:layout_constraintTop_toBottomOf="@+id/btSix"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintVertical_bias="0.078" />
 
     <Button
         android:id="@+id/btSeven"
@@ -152,7 +152,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btFour"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintVertical_bias="0.078" />
 
     <Button
         android:id="@+id/btZero"
@@ -167,7 +167,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btMinus"
         app:layout_constraintTop_toBottomOf="@+id/btEight"
-        app:layout_constraintVertical_bias="0.109" />
+        app:layout_constraintVertical_bias="0.188" />
 
     <Button
         android:id="@+id/btMinus"
@@ -184,7 +184,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btSeven"
-        app:layout_constraintVertical_bias="0.109" />
+        app:layout_constraintVertical_bias="0.188" />
 
     <ImageButton
         android:id="@+id/btBack"
@@ -198,7 +198,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btZero"
         app:layout_constraintTop_toBottomOf="@+id/btNine"
-        app:layout_constraintVertical_bias="0.109" />
+        app:layout_constraintVertical_bias="0.188" />
 
     <TextView
         android:id="@+id/tvNumber"
@@ -210,9 +210,9 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/btTwo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.866" />
+        app:layout_constraintVertical_bias="0.876" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
