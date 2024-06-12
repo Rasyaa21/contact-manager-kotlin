@@ -5,6 +5,10 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentContainer
 import androidx.fragment.app.replace
+import com.google.firebase.Firebase
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.database
 import com.rasya.contact_manager.databinding.ActivityMainBinding
 import com.rasya.contact_manager.fragments.accountFragment
 import com.rasya.contact_manager.fragments.contactFragment
@@ -19,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         val email = intent.getStringExtra("email")
 
@@ -50,6 +55,8 @@ class MainActivity : AppCompatActivity() {
             commit()
         }
     }
+
+
 
 }
 

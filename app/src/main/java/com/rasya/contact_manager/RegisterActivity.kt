@@ -7,7 +7,9 @@ import android.widget.Toast
 import android.widget.Toast.LENGTH_LONG
 import android.widget.Toast.LENGTH_SHORT
 import androidx.core.view.WindowCompat
+import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.database
 import com.rasya.contact_manager.databinding.ActivityRegisterBinding
 
 
@@ -19,6 +21,7 @@ class RegisterActivity : AppCompatActivity() {
         val binding = ActivityRegisterBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
 
 
         firebaseAuth = FirebaseAuth.getInstance()
