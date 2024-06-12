@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import androidx.appcompat.app.AlertDialog
 import com.rasya.contact_manager.R
 import com.rasya.contact_manager.databinding.FragmentHomeBinding
 
@@ -31,6 +33,7 @@ class homeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         buttonGroup()
+        showEtDialog()
 
     }
 
@@ -46,15 +49,19 @@ class homeFragment : Fragment() {
         binding.btNine.setOnClickListener { addToStringPlaceholder("9") }
         binding.btZero.setOnClickListener { addToStringPlaceholder("0") }
         binding.btMinus.setOnClickListener { addToStringPlaceholder("-") }
-        binding.btBack.setOnClickListener { deleteNum() }
+        binding.btBack.setOnClickListener { deleteNumOnebyOne() }
+        binding.btBack.setOnLongClickListener {
+            deleteNumOnHold()
+            true
+        }
     }
 
-    fun addToStringPlaceholder(value : String){
+    private fun addToStringPlaceholder(value : String){
         stringPlaceHolder += value
         binding.tvNumber.text = stringPlaceHolder
     }
 
-    fun deleteNum(){
+    private fun deleteNumOnebyOne(){
         var getCurrenctText = binding.tvNumber.text.toString()
         if (getCurrenctText.isNotEmpty()){
             //susbtring digunakan untuk mendapatkan text dari index awal yang di inginkan hingga index akhirnya
@@ -62,6 +69,42 @@ class homeFragment : Fragment() {
             //satu karakter yang di akhir akan dibuang
             stringPlaceHolder = getCurrenctText.substring(0, getCurrenctText.length - 1)
             binding.tvNumber.text = stringPlaceHolder
+        }
+    }
+
+    private fun deleteNumOnHold(){
+        var getCurrenctText = binding.tvNumber.text.toString()
+        if (getCurrenctText.isNotEmpty()){
+            stringPlaceHolder = ""
+            binding.tvNumber.text = stringPlaceHolder
+        }
+
+    }
+
+    private fun showEtDialog(){
+        binding.btAdd.setOnClickListener{
+            val builder = AlertDialog.Builder(requireContext())
+            val inflater = layoutInflater
+            val dialogLayout = inflater.inflate(R.layout.edit_text_layout, null)
+            val name = dialogLayout.findViewById<EditText>(R.id.etName)
+            var phoneNum = dialogLayout.findViewById<EditText>(R.id.etPhoneNum)
+            val email = dialogLayout.findViewById<EditText>(R.id.etEmail)
+
+            //untuk mengisi nilai dari phone num jika mengggunakan edit text
+            phoneNum.setText(stringPlaceHolder)
+
+            with(builder){
+                setTitle("Add To Contact")
+                setPositiveButton("Add"){dialog, which ->
+                    //add to the database
+                }
+                setNegativeButton("Cancel"){dialog, which ->
+
+                }
+
+                setView(dialogLayout)
+                show()
+            }
         }
     }
 
