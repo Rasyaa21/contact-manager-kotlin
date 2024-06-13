@@ -1,14 +1,20 @@
 package com.rasya.contact_manager.fragments
 
+import android.content.ContentValues.TAG
 import android.os.Bundle
+import android.provider.ContactsContract.CommonDataKinds.Phone
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
+import com.google.firebase.Firebase
+import com.google.firebase.firestore.firestore
 import com.rasya.contact_manager.R
 import com.rasya.contact_manager.databinding.FragmentHomeBinding
+import kotlin.math.log
 
 
 class homeFragment : Fragment() {
@@ -16,6 +22,7 @@ class homeFragment : Fragment() {
     //A nullable variable that holds the reference to the generated binding class
     private var _binding: FragmentHomeBinding? = null
     private var stringPlaceHolder : String = ""
+    val db = Firebase.firestore
 
     //A non-nullable property that ensures _binding is not null when accessed.
     //The double exclamation mark (!!) asserts that the value is non-null.
@@ -34,6 +41,8 @@ class homeFragment : Fragment() {
 
         buttonGroup()
         showEtDialog()
+
+
 
     }
 
@@ -96,7 +105,20 @@ class homeFragment : Fragment() {
             with(builder){
                 setTitle("Add To Contact")
                 setPositiveButton("Add"){dialog, which ->
-                    //add to the database
+                    Log.d(tag, "button clicked")
+                    val contact = hashMapOf(
+                        "name" to name.text.toString(),
+                        "phone" to phoneNum.text.toString().toInt(),
+                        "email" to email.text.toString()
+                    )
+                    db.collection("contact")
+                        .add(contact)
+                        .addOnSuccessListener { documentReference ->
+                            Log.d(tag, "Doc add with id : ${documentReference.id}")
+                        }
+                        .addOnFailureListener { e ->
+                            Log.d(tag, "error adding to the database")
+                        }
                 }
                 setNegativeButton("Cancel"){dialog, which ->
 

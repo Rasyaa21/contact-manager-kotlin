@@ -10,6 +10,7 @@ import androidx.core.view.WindowCompat
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.database
+import com.google.firebase.firestore.firestore
 import com.rasya.contact_manager.databinding.ActivityRegisterBinding
 
 
@@ -22,8 +23,7 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-
-
+        val db = Firebase.firestore
         firebaseAuth = FirebaseAuth.getInstance()
 
         binding.btRegister.setOnClickListener {
