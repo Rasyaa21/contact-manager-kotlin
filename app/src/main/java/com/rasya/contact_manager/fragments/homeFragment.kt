@@ -111,7 +111,7 @@ class homeFragment : Fragment() {
                         "phone" to phoneNum.text.toString().toInt(),
                         "email" to email.text.toString()
                     )
-                    db.collection("contact")
+                    db.collection("users").document("userID").collection("contact")
                         .add(contact)
                         .addOnSuccessListener { documentReference ->
                             Log.d(tag, "Doc add with id : ${documentReference.id}")
@@ -123,7 +123,6 @@ class homeFragment : Fragment() {
                 setNegativeButton("Cancel"){dialog, which ->
 
                 }
-
                 setView(dialogLayout)
                 show()
             }

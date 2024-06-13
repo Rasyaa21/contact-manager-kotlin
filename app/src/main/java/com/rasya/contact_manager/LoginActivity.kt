@@ -20,6 +20,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
+
         firebaseAuth = FirebaseAuth.getInstance()
 
         binding.btRegister.setOnClickListener {
