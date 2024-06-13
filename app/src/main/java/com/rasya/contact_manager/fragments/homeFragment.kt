@@ -11,18 +11,23 @@ import android.view.ViewGroup
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.auth
 import com.google.firebase.firestore.firestore
 import com.rasya.contact_manager.R
 import com.rasya.contact_manager.databinding.FragmentHomeBinding
 import kotlin.math.log
 
+private lateinit var firebaseAuth: FirebaseAuth
 
 class homeFragment : Fragment() {
+
 
     //A nullable variable that holds the reference to the generated binding class
     private var _binding: FragmentHomeBinding? = null
     private var stringPlaceHolder : String = ""
     val db = Firebase.firestore
+
 
     //A non-nullable property that ensures _binding is not null when accessed.
     //The double exclamation mark (!!) asserts that the value is non-null.
@@ -38,11 +43,9 @@ class homeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         buttonGroup()
         showEtDialog()
-
-
+        firebaseAuth = FirebaseAuth.getInstance()
 
     }
 
@@ -108,10 +111,10 @@ class homeFragment : Fragment() {
                     Log.d(tag, "button clicked")
                     val contact = hashMapOf(
                         "name" to name.text.toString(),
-                        "phone" to phoneNum.text.toString().toInt(),
+                        "phone" to phoneNum.text.toString(),
                         "email" to email.text.toString()
                     )
-                    db.collection("users").document("userID").collection("contact")
+                    db.collection("users").document("${Firebase.auth.uid}").collection("contact")
                         .add(contact)
                         .addOnSuccessListener { documentReference ->
                             Log.d(tag, "Doc add with id : ${documentReference.id}")
