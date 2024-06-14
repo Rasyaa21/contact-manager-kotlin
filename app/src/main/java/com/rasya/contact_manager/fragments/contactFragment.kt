@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Adapter
@@ -27,7 +28,7 @@ private lateinit var firebaseAuth: FirebaseAuth
 private lateinit var myAdapter: MyAdapter
 private lateinit var userData : ArrayList<UserData>
 
-class contactFragment : Fragment() {
+class contactFragment : Fragment(), SearchView.OnQueryTextListener{
 
     private var _binding: FragmentContactBinding? = null
     private val binding get() = _binding!!
@@ -43,7 +44,6 @@ class contactFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         firebaseAuth = FirebaseAuth.getInstance()
-
         binding.recyclerview.layoutManager = LinearLayoutManager(context)
         binding.recyclerview.setHasFixedSize(true)
 
@@ -73,4 +73,24 @@ class contactFragment : Fragment() {
             Log.w(TAG, "User ID is null.")
         }
     }
+
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        return false
+    }
+
+    override fun onQueryTextChange(newText: String): Boolean {
+        searchList(newText)
+        return true
+    }
+
+    fun searchList(text: String) {
+        val search = ArrayList<UserData>()
+        for (data in userData) {
+            if (data.name?.toLowerCase()?.contains(text.toLowerCase()) == true) {
+                search.add(data)
+            }
+        }
+        myAdapter.searchData(search)
+    }
+
 }

@@ -25,6 +25,12 @@ class MyAdapter(private val contact: ArrayList<UserData>) : RecyclerView.Adapter
         holder.tvEmail.text = "Email : ${contact.email.toString()}"
     }
 
+    fun searchData(searchList: ArrayList<UserData>) {
+        contact.clear()
+        contact.addAll(searchList)
+        notifyDataSetChanged()
+    }
+
     override fun getItemCount(): Int {
         return contact.size
     }
