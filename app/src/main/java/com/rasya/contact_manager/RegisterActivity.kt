@@ -1,8 +1,10 @@
 package com.rasya.contact_manager
 
+import android.content.ContentValues
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import android.widget.Toast.LENGTH_LONG
 import android.widget.Toast.LENGTH_SHORT
@@ -35,6 +37,17 @@ class RegisterActivity : AppCompatActivity() {
                         if(it.isSuccessful){
                             Toast.makeText(this, "Account Successfully Created", LENGTH_LONG).show()
                             val intent = Intent(this, MainActivity::class.java)
+                            val uid = firebaseAuth.uid.toString()
+                            val users = hashMapOf(
+                                "uid" to uid,
+                                "email" to email
+                            )
+                            db.collection("users").document(uid)
+                                .set(users)
+                                .addOnSuccessListener { documentReferences ->
+                                    Log.d(ContentValues.TAG, "id added : $uid")
+                                }
+
                             intent.putExtra("email", email)
                             intent.putExtra("password", password)
                             startActivity(intent)
